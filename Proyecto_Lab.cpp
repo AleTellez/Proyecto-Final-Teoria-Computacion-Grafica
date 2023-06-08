@@ -2462,7 +2462,7 @@ int main()
 		{
 			if (movSun < 1.0f)
 			{
-				movSun += movSunOffset;
+				movSun += movSunOffset * 3;
 				mainLight = DirectionalLight(1.0f, 1.0f, 1.0f,
 					1.0f, 1.0f,
 					//0.5f, 0.3f,
@@ -2667,7 +2667,7 @@ int main()
 		//Piso Exterior
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::scale(model, glm::vec3(6.0f, 5.0f, 5.0f));
 		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		cementoTexture.UseTexture();
@@ -4222,6 +4222,51 @@ int main()
 		pandabuenoTexture.UseTexture();
 		Panda_Cabeza2.RenderModel();
 
+		//muro enfrente
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		muro.UseTexture();
+		muroenfrenteder.RenderModel();
+
+		//muro enfrente izq
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 325.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		muro.UseTexture();
+		muroenfrenteder.RenderModel();
+
+		//muro der
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(282.0f, 0.0f, -70.0f));
+		model = glm::scale(model, glm::vec3(7.5f, 5.0f, 5.0f));
+		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		muro.UseTexture();
+		muroenfrenteder.RenderModel();
+
+		//muro izq
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(282.0f, 0.0f, 485.0f));
+		model = glm::scale(model, glm::vec3(7.5f, 5.0f, 5.0f));
+		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		muro.UseTexture();
+		muroenfrenteder.RenderModel();
+
+		//muro atras
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-354.0f, 0.0f, 408.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 12.3f));
+		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		muro.UseTexture();
+		muroenfrenteder.RenderModel();
+
 
 		//dona
 		if (donaVoltea) {
@@ -4260,51 +4305,7 @@ int main()
 		dona_pandaTexture.UseTexture();
 		dona_panda.RenderModel();
 
-		//muro enfrente
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
-		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//muro.UseTexture();
-		muroenfrenteder.RenderModel();
-
-		//muro enfrente izq
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 325.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
-		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//muro.UseTexture();
-		muroenfrenteder.RenderModel();
-
-		//muro der
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(282.0f, 0.0f, -70.0f));
-		model = glm::scale(model, glm::vec3(7.5f, 5.0f, 5.0f));
-		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//muro.UseTexture();
-		muroenfrenteder.RenderModel();
-
-		//muro izq
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(282.0f, 0.0f, 485.0f));
-		model = glm::scale(model, glm::vec3(7.5f, 5.0f, 5.0f));
-		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//muro.UseTexture();
-		muroenfrenteder.RenderModel();
-
-		//muro atras
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-354.0f, 0.0f, 408.0f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 12.3f));
-		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//muro.UseTexture();
-		muroenfrenteder.RenderModel();
-
+		
 		///////////////
 		//Estanque
 		model = glm::mat4(1.0);
@@ -4463,6 +4464,16 @@ int main()
 		carroTexture.UseTexture();
 		carro3.RenderModel();
 
+
+		//Habitat pinguino
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		habitatpinguino_Texture.UseTexture();
+		habitatpinguino.RenderModel();
+
 		//iglu
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.0f));
@@ -4473,7 +4484,7 @@ int main()
 		iglu.RenderModel();
 
 		//piedras pinguino
-		model = glm::mat4(1.0);
+		/*model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.0f));
 		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -4490,7 +4501,7 @@ int main()
 		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		habitatpinguino_Texture.UseTexture();
-		habitatpinguino.RenderModel();
+		habitatpinguino.RenderModel();*/
 
 		//Estanque tigre
 		model = glm::mat4(1.0);
